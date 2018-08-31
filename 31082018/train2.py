@@ -157,7 +157,7 @@ import dill
 with open('datatrain.data', 'rb') as file:
  datatofile = dill.load(file)
 tt=[]
-datatofile.reverse()
+#datatofile.reverse()
 import random
 #random.shuffle(datatofile)
 print(len(datatofile))
@@ -198,6 +198,11 @@ def is_s(word):
         return True
     else:
         return False
+
+def lennum(word,num):
+    if len(word)==num:
+        return True
+    return False
 def doc2features0(doc, i):
     word = doc[i][0]
     postag = doc[i][1]
@@ -212,6 +217,10 @@ def doc2features0(doc, i):
         'word[-3:]': word[-3:],
         'word[-2:]': word[-2:]
     }
+    if word.isdigit() and len(word)==5:
+        features['word.islen5']=True
+    elif postag=='NCNM' and len(word)==10:
+        features['word.islenten']=True
     # Features from previous word
     if i > 0:
         prevword = doc[i-1][0]
