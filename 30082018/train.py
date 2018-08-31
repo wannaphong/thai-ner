@@ -318,3 +318,7 @@ sorted_labels = sorted(
 print(metrics.flat_classification_report(
     y_test, y_pred, labels=sorted_labels, digits=3
 ))
+import dill
+with open("datatrain.data", "wb") as dill_file:
+ dill.dump(datatofile, dill_file)
+
