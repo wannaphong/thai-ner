@@ -11,6 +11,17 @@ import nltk
 import re
 # thai cut
 thaicut="newmm"
+#จัดการประโยคซ้ำ
+data_not=[]
+def Unique(p):
+ text=re.sub("<[^>]*>","",p)
+ text=re.sub("\[(.*?)\]","",text)
+ text=re.sub("\[\/(.*?)\]","",text)
+ if text not in data_not:
+  data_not.append(text)
+  return True
+ else:
+  return False
 # เตรียมตัวตัด tag ด้วย re
 pattern = r'\[(.*?)\](.*?)\[\/(.*?)\]'
 tokenizer = RegexpTokenizer(pattern) # ใช้ nltk.tokenize.RegexpTokenizer เพื่อตัด [TIME]8.00[/TIME] ให้เป็น ('TIME','ไง','TIME')
@@ -91,7 +102,7 @@ def get_data(fileopen):
     """
 	with codecs.open(fileopen, 'r',encoding='utf-8-sig') as f:
 		lines = f.read().splitlines()
-	return lines
+	return [a for a in lines if Unique(a)] # เอาไม่ซ้ำกัน
 
 def alldata(lists):
     text=""
@@ -153,6 +164,7 @@ def getall(lista):
     return ll
 
 data1=getall(get_data(file_name+".txt"))
+print(len(data1))
 '''import dill
 with open('datatrain.data', 'rb') as file:
  datatofile = dill.load(file)'''

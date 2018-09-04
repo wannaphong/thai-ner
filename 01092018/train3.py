@@ -11,6 +11,17 @@ import nltk
 import re
 # thai cut
 thaicut="newmm"
+#จัดการประโยคซ้ำ
+data_not=[]
+def no_d(p):
+ text=re.sub("<[^>]*>","",p)
+ text=re.sub("\[(.*?)\]","",text)
+ text=re.sub("\[\/(.*?)\]","",text)
+ if text not in data_not:
+  data_not.append(text)
+  return True
+ else:
+  return False
 # เตรียมตัวตัด tag ด้วย re
 pattern = r'\[(.*?)\](.*?)\[\/(.*?)\]'
 tokenizer = RegexpTokenizer(pattern) # ใช้ nltk.tokenize.RegexpTokenizer เพื่อตัด [TIME]8.00[/TIME] ให้เป็น ('TIME','ไง','TIME')
