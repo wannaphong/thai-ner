@@ -186,6 +186,8 @@ test_samples = datatofile[2822:]'''
 
 from sklearn_crfsuite import scorers
 from sklearn_crfsuite import metrics
+from sklearn.metrics import make_scorer
+from sklearn.model_selection import cross_validate
 import sklearn_crfsuite
 from pythainlp.corpus import stopwords
 stopwords = stopwords.words('thai')
@@ -343,6 +345,11 @@ sorted_labels = sorted(
 print(metrics.flat_classification_report(
     y_test, y_pred, labels=sorted_labels, digits=3
 ))
+# cross_validate
+f1_scorer = make_scorer(metrics.flat_f1_score, average='macro') 
+
+scores = cross_validate(crf, X, y, scoring=f1_scorer, cv=5)
+# save data
 import dill
 with open("datatrain.data", "wb") as dill_file:
  dill.dump(datatofile, dill_file)
