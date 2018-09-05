@@ -86,7 +86,7 @@ crf = sklearn_crfsuite.CRF(
     c2=0.1,
     max_iterations=500,
     all_possible_transitions=True,
-    model_filename=file_name+"-pos.model0"
+    model_filename=file_name+".model"
 )
 def get_ner(text):
     word_cut=word_tokenize(text,engine=thaicut)
