@@ -1,4 +1,4 @@
-# lab-thai-ner
+# Thai NER
 
 โครงการ Thai NER เป็นโครงการสำหรับทำ NER เป็นส่วนหนึ่งของ PyThaiNLP
 

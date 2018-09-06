@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # เรียกใช้งานโมดูล
-file_name="data2"
+file_name="data"
 import codecs
 from pythainlp.tokenize import word_tokenize
 #import deepcut
@@ -11,6 +11,23 @@ import nltk
 import re
 # thai cut
 thaicut="newmm"
+from sklearn_crfsuite import scorers,metrics
+from sklearn.metrics import make_scorer
+from sklearn.model_selection import cross_validate,train_test_split
+import sklearn_crfsuite
+from pythainlp.corpus import stopwords
+stopwords = stopwords.words('thai')
+#จัดการประโยคซ้ำ
+data_not=[]
+def Unique(p):
+ text=re.sub("<[^>]*>","",p)
+ text=re.sub("\[(.*?)\]","",text)
+ text=re.sub("\[\/(.*?)\]","",text)
+ if text not in data_not:
+  data_not.append(text)
+  return True
+ else:
+  return False
 # เตรียมตัวตัด tag ด้วย re
 pattern = r'\[(.*?)\](.*?)\[\/(.*?)\]'
 tokenizer = RegexpTokenizer(pattern) # ใช้ nltk.tokenize.RegexpTokenizer เพื่อตัด [TIME]8.00[/TIME] ให้เป็น ('TIME','ไง','TIME')
@@ -91,7 +108,7 @@ def get_data(fileopen):
     """
 	with codecs.open(fileopen, 'r',encoding='utf-8-sig') as f:
 		lines = f.read().splitlines()
-	return lines
+	return [a for a in lines if Unique(a)] # เอาไม่ซ้ำกัน
 
 def alldata(lists):
     text=""
@@ -152,31 +169,26 @@ def getall(lista):
             ll.append(i)
     return ll
 
-data1=getall(get_data(file_name+".txt"))
+#data1=getall(get_data(file_name+".txt"))
+#print(len(data1))
 import dill
 with open('datatrain.data', 'rb') as file:
  datatofile = dill.load(file)
-datatofile=alldata_list(data1)
+#datatofile=alldata_list(data1)
 tt=[]
 #datatofile.reverse()
 import random
 #random.shuffle(datatofile)
 print(len(datatofile))
-training_samples = datatofile[:int(len(datatofile) * 0.8)]
-test_samples = datatofile[int(len(datatofile) * 0.8):]
+#training_samples = datatofile[:int(len(datatofile) * 0.8)]
+#test_samples = datatofile[int(len(datatofile) * 0.8):]
 '''training_samples = datatofile[:2822]
 test_samples = datatofile[2822:]'''
-print(test_samples[0])
+#print(test_samples[0])
 #tag=TrainChunker(training_samples,test_samples) # Train
 
 #run(training_samples,test_samples)
 
-
-from sklearn_crfsuite import scorers
-from sklearn_crfsuite import metrics
-import sklearn_crfsuite
-from pythainlp.corpus import stopwords
-stopwords = stopwords.words('thai')
 
 def isThai(chr):
  cVal = ord(chr)
@@ -204,7 +216,7 @@ def lennum(word,num):
     if len(word)==num:
         return True
     return False
-def doc2features0(doc, i):
+def doc2features(doc, i):
     word = doc[i][0]
     postag = doc[i][1]
     # Features from current word
@@ -214,16 +226,10 @@ def doc2features0(doc, i):
         'word.isthai':isThaiWord(word),
         'word.isspace':word.isspace(),
         'postag':postag,
-        'postag[:2]': postag[:2],
-        'word.isdigit()': word.isdigit(),
-        'word[-3:]': word[-3:],
-        'word[-2:]': word[-2:]
+        'word.isdigit()': word.isdigit()
     }
     if word.isdigit() and len(word)==5:
         features['word.islen5']=True
-    #if postag=='NCNM':
-    #    features['word.islenten']=len(word)==10
-    # Features from previous word
     if i > 0:
         prevword = doc[i-1][0]
         postag1 = doc[i-1][1]
@@ -232,7 +238,6 @@ def doc2features0(doc, i):
         features['word.previsthai']=isThaiWord(prevword)
         features['word.prevstopword']=is_stopword(prevword)
         features['word.prepostag'] = postag1
-        features['-1:postag[:2]']: postag1[:2]
         features['word.prevwordisdigit'] = prevword.isdigit()
     else:
         features['BOS'] = True # Special "Beginning of Sequence" tag
@@ -246,77 +251,28 @@ def doc2features0(doc, i):
         features['word.nextisthai']=isThaiWord(nextword)
         features['word.nextstopword']=is_stopword(nextword)
         features['word.nextwordisdigit'] = nextword.isdigit()
-        features['+1:postag[:2]']: postag1[:2]
     else:
         features['EOS'] = True # Special "End of Sequence" tag
     return features
 
-def extract_features0(doc):
-    return [doc2features0(doc, i) for i in range(len(doc))]
+def extract_features(doc):
+    return [doc2features(doc, i) for i in range(len(doc))]
 
 def get_labels(doc):
     return [tag for (token,postag,tag) in doc]
 
-X = [extract_features0(doc) for doc in training_samples]
-y = [get_labels(doc) for doc in training_samples]
 
-X_test = [extract_features0(doc) for doc in test_samples]
-y_test = [get_labels(doc) for doc in test_samples]
-#print(X[0])
-print(len(training_samples))
+X_data = [extract_features(doc) for doc in datatofile]
+y_data = [get_labels(doc) for doc in datatofile]
 
-def is_stopword(word):
-    return word in stopwords
-def doc2features2(doc, i):
-    word = doc[i]
-    postag = doc[i][1]
-    # Features from current word
-    features={
-        'word.word': word,
-        'word.stopword': is_stopword(word),
-        'postag':postag,
-        'postag[:2]': postag[:2],
-        'word.isdigit()': word.isdigit(),
-        'word[-3:]': word[-3:],
-        'word[-2:]': word[-2:]
-    }
-    # Features from previous word
-    if i > 0:
-        prevword = doc[i-1]
-        postag1 = doc[i-1][1]
-        features['word.prevword'] = prevword
-        features['word.prepostag'] = doc[i-1][1]
-        features['-1:postag[:2]']: postag1[:2]
-        features['word.prevwordisdigit'] = prevword.isdigit()
-    else:
-        features['BOS'] = True # Special "Beginning of Sequence" tag
-    # Features from next word
-    if i < len(doc)-1:
-        nextword = doc[i+1]
-        postag1 = doc[i+1][1]
-        features['word.nextword'] = nextword
-        features['+1:postag[:2]']: postag1[:2]
-        features['-1:postag[:2]']: postag1[:2]
-        features['word.nextwordisdigit'] = nextword.isdigit()
-    else:
-        features['EOS'] = True # Special "End of Sequence" tag
-    return features
-
-def extract_features2(tag):
-    i=0
-    l=[]
-    while i<len(tag):
-        l.append(doc2features2(tag,i))
-        i+=1
-    return l
-
+X, X_test, y, y_test = train_test_split(X_data, y_data, test_size=0.2)
 crf = sklearn_crfsuite.CRF(
     algorithm='lbfgs',
     c1=0.1,
     c2=0.1,
     max_iterations=500,
     all_possible_transitions=True,
-    model_filename=file_name+"-pos-new.model2"
+    model_filename=file_name+"-pos.model0"
 )
 crf.fit(X, y);
 
@@ -333,6 +289,11 @@ sorted_labels = sorted(
 print(metrics.flat_classification_report(
     y_test, y_pred, labels=sorted_labels, digits=3
 ))
+# cross_validate
+f1_scorer = make_scorer(metrics.flat_f1_score, average='macro') 
+
+scores = cross_validate(crf, X, y, scoring=f1_scorer, cv=5)
+# save data
 import dill
 with open("datatrain.data", "wb") as dill_file:
  dill.dump(datatofile, dill_file)
