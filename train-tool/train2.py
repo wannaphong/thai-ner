@@ -188,6 +188,23 @@ test_samples = datatofile[2822:]'''
 #tag=TrainChunker(training_samples,test_samples) # Train
 
 #run(training_samples,test_samples)
+with open(file_name+"-pos.conll","w") as f:
+    i=0
+    while i<len(datatofile):
+        for j in datatofile[i]:
+            f.write(j[0]+"\t"+j[1]+"\t"+j[2]+"\n")
+        if i+1<len(datatofile):
+            f.write("\n")
+        i+=1
+
+with open(file_name+".conll","w") as f:
+    i=0
+    while i<len(datatofile):
+        for j in datatofile[i]:
+            f.write(j[0]+"\t"+j[2]+"\n")
+        if i+1<len(datatofile):
+            f.write("\n")
+        i+=1
 
 
 def isThai(chr):
