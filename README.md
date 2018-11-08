@@ -9,6 +9,16 @@
 LICENSE: Apache License Version 2.0
 
 
+ขอขอบคุณผู้ร่วมกรอกข้อมูล Thai NER
+
+- คุณ แคน
+- คุณ knowbot
+- คุณ iknowbot
+- คุณ bancherddelong
+- คุณ ปิติฉัตร สุทธาโรจน์
+
+และขอขอบคุณชุดข้อมูลจาก Nutcha’s theses (<http://pioneer.chula.ac.th/~awirote/Data-Nutcha.zip>) ที่เรานำมาพัฒนาต่อเพิ่มเติม
+
 
 พัฒนาโดย นาย วรรณพงษ์ ภัททิยไพบูลย์
 
