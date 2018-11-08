@@ -1,5 +1,7 @@
 # Thai NER
 
+Thai Named Entity Recognition
+
 โครงการ Thai NER เป็นโครงการสำหรับทำ NER เป็นส่วนหนึ่งของ PyThaiNLP
 
 ต้องการ PyThaiNLP เวชั่นกำลังพัฒนา ให้ทำติดตั้งด้วยคำสั่ง pip install https://github.com/PyThaiNLP/pythainlp/archive/dev.zip
