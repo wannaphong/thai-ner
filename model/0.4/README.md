@@ -1,5 +1,9 @@
 # Thai NER 0.4
 
+[![สัญญาอนุญาตของครีเอทีฟคอมมอนส์](https://i.creativecommons.org/l/by/3.0/th/88x31.png)]
+
+licensed under [CC-BY 3.0](http://creativecommons.org/licenses/by/3.0/)
+
 ใช้ข้อมูล Train ทั้งหมด 5696 ประโยค (บรรทัด) โดย CRF + POS TAG ในการ train
 
 แท็กที่รองรับ
