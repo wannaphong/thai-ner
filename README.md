@@ -2,6 +2,10 @@
 
 Thai Named Entity Recognition
 
+[![สัญญาอนุญาตของครีเอทีฟคอมมอนส์](https://i.creativecommons.org/l/by/3.0/th/88x31.png)]
+
+licensed under [CC-BY 3.0](http://creativecommons.org/licenses/by/3.0/)
+
 โครงการ Thai NER เป็นโครงการสำหรับทำ NER เป็นส่วนหนึ่งของ PyThaiNLP
 
 ต้องการ PyThaiNLP เวชั่นกำลังพัฒนา ให้ทำติดตั้งด้วยคำสั่ง pip install https://github.com/PyThaiNLP/pythainlp/archive/dev.zip
