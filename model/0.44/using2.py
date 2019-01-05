@@ -91,7 +91,9 @@ crf = sklearn_crfsuite.CRF(
 def get_ner(text):
     word_cut=word_tokenize(text,engine=thaicut)
     list_word=pos_tag(word_cut,engine='perceptron')
+    print([(data,list_word[i][1]) for i,data in enumerate(word_cut)])
     X_test = extract_features([(data,list_word[i][1]) for i,data in enumerate(word_cut)])
+    print(X_test)
     y_=crf.predict_single(X_test)
     return [(word_cut[i],list_word[i][1],data) for i,data in enumerate(y_)]
 
