@@ -102,3 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+model/0\.44/ner-2\.pt\.ep1
+
+model/0\.44/NER-LSTM-Copy1\.ipynb
