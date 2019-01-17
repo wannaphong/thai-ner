@@ -10,6 +10,7 @@ licensed under [CC-BY 3.0](http://creativecommons.org/licenses/by/3.0/)
 
 ต้องการ PyThaiNLP เวชั่นกำลังพัฒนา ให้ทำติดตั้งด้วยคำสั่ง pip install pythainlp
 
+คุณสามารถใช้งาน Thai NER ได้ตามเอกสารนี้ https://thainlp.org/pythainlp/docs/1.7/api/ner.html
 
 
 LICENSE: Apache License Version 2.0
