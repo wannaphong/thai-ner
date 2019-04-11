@@ -24,7 +24,7 @@ There are 6306 sentences. Using CRF + postag.
 
 ## Performance
 
-The ThaiNER iis trained from 80 % of ThaiNER corpus and test on the rest 20 %.
+The ThaiNER is trained from 80 % of ThaiNER corpus and test on the rest 20 %.
 
 ```
 0.867959652466252
