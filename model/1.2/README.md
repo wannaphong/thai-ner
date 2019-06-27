@@ -1,4 +1,4 @@
-# Thai NER 1.1
+# Thai NER 1.2
 
 [![สัญญาอนุญาตของครีเอทีฟคอมมอนส์](https://i.creativecommons.org/l/by/3.0/th/88x31.png)]
 
