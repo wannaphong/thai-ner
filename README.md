@@ -1,5 +1,7 @@
 # Thai NER
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3342459.svg)](https://doi.org/10.5281/zenodo.3342459)
+
 Thai Named Entity Recognition
 
 [![สัญญาอนุญาตของครีเอทีฟคอมมอนส์](https://i.creativecommons.org/l/by/3.0/th/88x31.png)]
