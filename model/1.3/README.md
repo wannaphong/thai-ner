@@ -4,7 +4,7 @@
 
 licensed under [CC-BY 3.0](http://creativecommons.org/licenses/by/3.0/)
 
-Thai Named Entity Recognition
+Thai Named Entity Recognition for PyThaiNLP 2.1
 
 There are 6,456 sentences. Using CRF + postag.
 
@@ -69,7 +69,7 @@ I-ORGANIZATION      0.816     0.731     0.771      1352
 - data-pos.model0 - ThaiNER test model
 - data.txt - train dataset
 - train.ipynb - Notebook train
-- train.data - Data for train full model
+- train_thainer.data - Data for train full model
 
 
 
