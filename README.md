@@ -15,8 +15,12 @@ licensed under [CC-BY 3.0](http://creativecommons.org/licenses/by/3.0/)
 
 LICENSE: Apache License Version 2.0
 
+## มาตรการคุ้มครองข้อมูลส่วนบุคคล
 
-Thank You
+โปรเจคนี้ทำขึ้นเพื่อการศึกษาและทำ NER สำหรับ PyThaiNLP หากคุณพบว่ามีข้อมูลส่วนบุคคลของคุณ หรือ คุณต้องการให้ลบออกจากระบบ คุณสามารถส่งอีเมลแจ้งมาทาง wannaphong@kkumail.com ทางเราจะดำเนินการอย่างเร็วที่สุด
+
+
+## Thank You
 
 - คุณ แคน
 - คุณ knowbot
