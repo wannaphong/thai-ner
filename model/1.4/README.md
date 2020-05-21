@@ -67,7 +67,7 @@ I-ORGANIZATION       0.84      0.77      0.81      1338
 
 - thai-ner-1-4.crfsuite - ThaiNER full model
 - thai-ner-1-4-test.crfsuite - ThaiNER test model
-- train.ipynb - Notebook train
+- thainer.ipynb - Notebook train
 
 
 
