@@ -10,7 +10,7 @@ licensed under [CC-BY 3.0](http://creativecommons.org/licenses/by/3.0/)
 
 โครงการ Thai NER เป็นโครงการสำหรับทำ NER เป็นส่วนหนึ่งของ PyThaiNLP
 
-คุณสามารถใช้งาน Thai NER ได้ตามเอกสารนี้ https://www.thainlp.org/pythainlp/docs/2.0/api/tag.html
+คุณสามารถใช้งาน Thai NER ได้ตามเอกสารนี้ https://www.thainlp.org/pythainlp/docs/2.1/api/tag.html
 
 
 LICENSE: Apache License Version 2.0
