@@ -4,9 +4,23 @@
 
 Thai Named Entity Recognition
 
-[![สัญญาอนุญาตของครีเอทีฟคอมมอนส์](https://i.creativecommons.org/l/by/3.0/th/88x31.png)]
+corpus licensed under [CC-BY 3.0](http://creativecommons.org/licenses/by/3.0/)
 
-licensed under [CC-BY 3.0](http://creativecommons.org/licenses/by/3.0/)
+## English
+
+Thai NER project is part of PyThaiNLP.
+
+You can using Thai NER in PyThaiNLP.
+
+Docs : https://www.thainlp.org/pythainlp/docs/2.1/api/tag.html
+
+CODE LICENSE: Apache License Version 2.0
+
+
+## ภาษาไทย
+
+
+[![สัญญาอนุญาตของครีเอทีฟคอมมอนส์](https://i.creativecommons.org/l/by/3.0/th/88x31.png)]
 
 โครงการ Thai NER เป็นโครงการสำหรับทำ NER เป็นส่วนหนึ่งของ PyThaiNLP
 
@@ -14,6 +28,15 @@ licensed under [CC-BY 3.0](http://creativecommons.org/licenses/by/3.0/)
 
 
 LICENSE: Apache License Version 2.0
+
+By Mr.Wannaphong Phatthiyaphaibun
+
+Bachelor of Science Program in Computer and Information Science, Nong Khai Campus, Khon Kaen University
+
+https://iam.wannaphong.com/
+
+E-mail : wannaphong@kkumail.com
+
 
 ## มาตรการคุ้มครองข้อมูลส่วนบุคคล
 
