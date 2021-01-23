@@ -13,6 +13,8 @@ Thai NER project is part of PyThaiNLP.
 
 You can using Thai NER in PyThaiNLP.
 
+Thai NER wiki: https://github.com/wannaphong/thai-ner/wiki
+
 Docs : https://www.thainlp.org/pythainlp/docs/2.1/api/tag.html
 
 CODE LICENSE: Apache License Version 2.0
@@ -26,6 +28,8 @@ CODE LICENSE: Apache License Version 2.0
 โครงการ Thai NER เป็นโครงการสำหรับทำ NER เป็นส่วนหนึ่งของ PyThaiNLP
 
 คุณสามารถใช้งาน Thai NER ได้ตามเอกสารนี้ https://www.thainlp.org/pythainlp/docs/2.1/api/tag.html
+
+Thai NER wiki: https://github.com/wannaphong/thai-ner/wiki
 
 
 LICENSE: Apache License Version 2.0
