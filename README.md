@@ -7,6 +7,9 @@ Thai Named Entity Recognition
 
 corpus licensed under [CC-BY 3.0](http://creativecommons.org/licenses/by/3.0/)
 
+**News**
+> Newest Dataset will be at [https://github.com/PyThaiNLP/Thai-NER](https://github.com/PyThaiNLP/Thai-NER)
+
 ## English
 
 Thai NER project is part of PyThaiNLP.
