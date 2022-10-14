@@ -40,12 +40,12 @@ Bachelor of Science Program in Computer and Information Science, Nong Khai Campu
 
 https://iam.wannaphong.com/
 
-E-mail : wannaphong@kkumail.com
+E-mail : wannaphong@yahoo.com
 
 
 ## มาตรการคุ้มครองข้อมูลส่วนบุคคล
 
-โปรเจคนี้ทำขึ้นเพื่อการศึกษาและทำ NER สำหรับ PyThaiNLP หากคุณพบว่ามีข้อมูลส่วนบุคคลของคุณ หรือ คุณต้องการให้ลบออกจากระบบ คุณสามารถส่งอีเมลแจ้งมาทาง wannaphong@kkumail.com ทางเราจะดำเนินการอย่างเร็วที่สุด
+โปรเจคนี้ทำขึ้นเพื่อการศึกษาและทำ NER สำหรับ PyThaiNLP หากคุณพบว่ามีข้อมูลส่วนบุคคลของคุณ หรือ คุณต้องการให้ลบออกจากระบบ คุณสามารถส่งอีเมลแจ้งมาทาง wannaphong@yahoo.com ทางเราจะดำเนินการอย่างเร็วที่สุด
 
 
 ## Thank You
